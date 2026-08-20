@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fff8f1" />
+    <meta name="description" content="Connect with Desi Crafty Place — handmade art, gifts, and decor crafted with heart." />
+    <meta property="og:title" content="Desi Crafty Place" />
+    <meta property="og:description" content="Handmade art, gifts, and decor crafted with heart." />
+    <title>Desi Crafty Place | Handmade with Heart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <div class="page-glow page-glow-one" aria-hidden="true"></div>
+    <div class="page-glow page-glow-two" aria-hidden="true"></div>
+
+    <div class="site-shell">
+      <header class="site-header" data-reveal>
+        <a class="brand" href="#top" aria-label="Desi Crafty Place home">
+          <span class="brand-mark" data-brand-initials>DC</span>
+          <span class="brand-name" data-brand-name>Desi Crafty Place</span>
+        </a>
+
+        <button class="icon-button" id="share-button" type="button" aria-label="Share this page">
+          <span aria-hidden="true">↗</span>
+          <span>Share</span>
+        </button>
+      </header>
+
+      <main id="top">
+        <section class="hero" aria-labelledby="profile-name">
+          <div class="portrait-wrap" data-reveal>
+            <div class="portrait" id="profile-visual">
+              <div class="portrait-placeholder" aria-hidden="true">
+                <span class="portrait-flower">✦</span>
+                <span data-brand-initials>DC</span>
+                <small>Your logo or photo</small>
+              </div>
+            </div>
+            <span class="made-badge">made with love</span>
+          </div>
+
+          <div class="hero-copy" data-reveal>
+            <p class="eyebrow" data-eyebrow>Handcrafted with heart</p>
+            <h1 id="profile-name" data-brand-name>Desi Crafty Place</h1>
+            <p class="tagline" data-tagline>Handmade home decor and customized gifts.</p>
+            <p class="intro" data-intro>I create custom, handcrafted home decor and gifts for every occasion.</p>
+            <p class="profile-meta">
+              <span data-owner-name>Geetanjali Patil</span>
+              <span class="meta-divider" aria-hidden="true">✦</span>
+              <span data-location>Monmouth Junction, NJ 08852</span>
+            </p>
+            <div class="quick-actions" id="quick-actions" aria-label="Contact options"></div>
+          </div>
+        </section>
+
+        <section class="link-section" aria-labelledby="links-title" data-reveal>
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">Find us online</p>
+              <h2 id="links-title">Let’s stay connected</h2>
+            </div>
+            <span class="tiny-flower" aria-hidden="true">✦</span>
+          </div>
+          <div class="link-list" id="social-links"></div>
+        </section>
+
+        <section class="contact-card" aria-labelledby="contact-title" data-reveal>
+          <div>
+            <p class="section-kicker">Custom orders welcome</p>
+            <h2 id="contact-title">Have something special in mind?</h2>
+            <p>We’d love to hear your idea and create something made just for you.</p>
+          </div>
+          <a class="button button-light" id="inquiry-button" href="#">
+            <span>Start a conversation</span>
+            <span class="button-arrow" aria-hidden="true">→</span>
+          </a>
+        </section>
+      </main>
+
+      <footer data-reveal>
+        <span>© <span id="current-year"></span> <span data-brand-name>Desi Crafty Place</span></span>
+        <span class="footer-heart">Handmade with <span aria-label="love">♥</span></span>
+      </footer>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
