@@ -116,22 +116,6 @@ a { color: inherit; }
 .portrait-placeholder { display: grid; place-items: center; color: var(--white); font-family: "Fraunces", serif; font-size: 2rem; font-weight: 700; }
 .portrait-placeholder small { margin-top: 0.25rem; font-family: "DM Sans", sans-serif; font-size: 0.57rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
 .portrait-flower { margin-bottom: 0.15rem; color: #ffe3a7; font-size: 0.9rem; }
-.made-badge {
-  position: absolute;
-  right: -1.25rem;
-  bottom: 0.35rem;
-  transform: rotate(-5deg);
-  padding: 0.45rem 0.65rem;
-  border-radius: 0.45rem;
-  color: var(--berry-dark);
-  background: #ffe3a7;
-  box-shadow: 0 8px 20px rgba(84, 42, 57, 0.13);
-  font-size: 0.63rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
 .eyebrow, .section-kicker { margin: 0 0 0.65rem; color: var(--berry); font-size: 0.71rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; }
 h1, h2 { margin: 0; font-family: "Fraunces", Georgia, serif; letter-spacing: -0.035em; }
 h1 { max-width: 12ch; margin-inline: auto; font-size: clamp(2.75rem, 12vw, 4.8rem); line-height: 0.98; }
