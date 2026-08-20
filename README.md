@@ -13,7 +13,7 @@ Open `src/content.js`. This single file controls:
 - Instagram, Facebook, shop, Pinterest, or any other links
 - Profile photo or logo
 
-Upload images to the `assets` folder. Then set the image path in `src/content.js`, for example:
+The two supplied Desi Crafty Place logo files are stored in the `assets` folder. To replace the primary logo later, set its image path in `src/content.js`, for example:
 
 ```js
 image: './assets/mom-profile.jpg',

@@ -102,8 +102,8 @@ a { color: inherit; }
   overflow: hidden;
   place-items: center;
   border: 0.45rem solid rgba(255, 255, 255, 0.9);
-  border-radius: 45% 55% 51% 49% / 50% 42% 58% 50%;
-  background: radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.65), transparent 1.4rem), linear-gradient(145deg, #f4c269, #a83e65);
+  border-radius: 50%;
+  background: var(--white);
   box-shadow: var(--shadow);
   animation: float 5s ease-in-out infinite;
 }
@@ -199,6 +199,26 @@ h2 { font-size: clamp(1.7rem, 7vw, 2.45rem); line-height: 1.08; }
 .contact-card .section-kicker { color: #ffd98a; }
 .contact-card p:not(.section-kicker) { margin: 0.8rem 0 0; color: rgba(255, 255, 255, 0.78); line-height: 1.6; }
 .button-light { border-color: var(--white); color: var(--berry-dark); background: var(--white); }
+.brand-note {
+  display: grid;
+  grid-template-columns: 7.2rem minmax(0, 1fr);
+  align-items: center;
+  gap: 1.15rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid rgba(139, 41, 79, 0.12);
+  border-radius: 1.2rem;
+  background: rgba(255, 255, 255, 0.62);
+}
+.brand-note img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 0.85rem;
+  object-fit: cover;
+}
+.brand-note .section-kicker { margin-bottom: 0.35rem; }
+.brand-quote { margin: 0; color: var(--muted); font-family: "Fraunces", Georgia, serif; font-size: 1rem; font-weight: 600; line-height: 1.45; }
 footer { display: flex; flex-direction: column; align-items: center; gap: 0.45rem; padding: 2.7rem 0 2rem; color: var(--muted); font-size: 0.74rem; text-align: center; }
 .footer-heart span { color: var(--berry); }
 .toast {
@@ -251,6 +271,8 @@ footer { display: flex; flex-direction: column; align-items: center; gap: 0.45re
   .quick-actions { width: min(100%, 27rem); margin-inline: auto; }
   .contact-card { grid-template-columns: minmax(0, 1fr) auto; align-items: end; padding: 2rem; }
   .contact-card .button { white-space: nowrap; }
+  .brand-note { grid-template-columns: 9rem minmax(0, 1fr); gap: 1.8rem; padding: 1.25rem; }
+  .brand-quote { font-size: 1.2rem; }
   footer { flex-direction: row; justify-content: space-between; }
 }
 

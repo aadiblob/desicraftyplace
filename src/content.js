@@ -14,9 +14,8 @@ export const siteContent = {
     intro: 'I create custom, handcrafted home decor and gifts for every occasion.',
     location: 'Monmouth Junction, NJ 08852',
 
-    // Upload a photo or logo into /assets, then use a path like './assets/mom-profile.jpg'.
-    image: '',
-    imageAlt: 'The artist behind Desi Crafty Place',
+    image: './assets/desi-crafty-place-logo.png',
+    imageAlt: 'Desi Crafty Place handmade desi crafts lotus logo',
   },
 
   contact: {
