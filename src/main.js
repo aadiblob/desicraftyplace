@@ -25,6 +25,83 @@ const makeButton = ({ label, url, style = 'secondary' }) => {
   return link;
 };
 
+const escapeVCardValue = (value = '') => String(value)
+  .replace(/\\/g, '\\\\')
+  .replace(/\n/g, '\\n')
+  .replace(/,/g, '\\,')
+  .replace(/;/g, '\\;');
+
+const foldVCardLine = (line) => {
+  const chunks = line.match(/.{1,74}/g) || [''];
+  return chunks.join('\r\n ');
+};
+
+const imageToBase64 = async (url) => {
+  const response = await fetch(url);
+  if (!response.ok) throw new Error('Contact image could not be loaded.');
+  const blob = await response.blob();
+
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result).split(',')[1]);
+    reader.onerror = () => reject(reader.error);
+    reader.readAsDataURL(blob);
+  });
+};
+
+const downloadContactCard = async () => {
+  const { brand, profile, contact, links } = siteContent;
+  const nameParts = profile.ownerName.trim().split(/\s+/);
+  const lastName = nameParts.pop() || '';
+  const firstNames = nameParts.join(' ');
+  const phone = contact.phone.replace(/[^+\d]/g, '');
+  const address = contact.address || {};
+  let photoLine = '';
+
+  if (contact.contactCardPhoto) {
+    try {
+      const photo = await imageToBase64(contact.contactCardPhoto);
+      photoLine = `PHOTO;ENCODING=b;TYPE=PNG:${photo}`;
+    } catch {
+      // The rest of the contact card is still useful if the image cannot load.
+    }
+  }
+
+  const linkLines = links
+    .filter((item) => item.url)
+    .flatMap((item, index) => [
+      `item${index + 1}.URL:${escapeVCardValue(item.url)}`,
+      `item${index + 1}.X-ABLabel:${escapeVCardValue(item.label)}`,
+    ]);
+
+  const lines = [
+    'BEGIN:VCARD',
+    'VERSION:3.0',
+    `N:${escapeVCardValue(lastName)};${escapeVCardValue(firstNames)};;;`,
+    `FN:${escapeVCardValue(profile.ownerName)}`,
+    `ORG:${escapeVCardValue(brand.name)}`,
+    `TITLE:${escapeVCardValue(profile.tagline)}`,
+    `TEL;TYPE=CELL:${phone}`,
+    `EMAIL;TYPE=INTERNET:${escapeVCardValue(contact.email)}`,
+    `ADR;TYPE=WORK:;;${escapeVCardValue(address.city)};${escapeVCardValue(address.state)};${escapeVCardValue(address.postalCode)};${escapeVCardValue(address.country)}`,
+    ...linkLines,
+    `NOTE:${escapeVCardValue(profile.intro)}`,
+    photoLine,
+    'END:VCARD',
+  ].filter(Boolean);
+
+  const vCard = `${lines.map(foldVCardLine).join('\r\n')}\r\n`;
+  const file = new Blob([vCard], { type: 'text/vcard;charset=utf-8' });
+  const downloadUrl = URL.createObjectURL(file);
+  const download = document.createElement('a');
+  download.href = downloadUrl;
+  download.download = 'Geetanjali-Patil-Desi-Crafty-Place.vcf';
+  document.body.append(download);
+  download.click();
+  download.remove();
+  window.setTimeout(() => URL.revokeObjectURL(downloadUrl), 1500);
+};
+
 const renderProfile = () => {
   const { brand, profile, contact } = siteContent;
   const initials = brand.initials || getInitials(brand.name);
@@ -48,6 +125,26 @@ const renderProfile = () => {
   const actions = $('#quick-actions');
   if (contact.email) actions.append(makeButton({ label: 'Email us', url: `mailto:${contact.email}`, style: 'primary' }));
   if (contact.phone) actions.append(makeButton({ label: 'Call us', url: `tel:${contact.phone.replace(/[^+\d]/g, '')}` }));
+
+  const saveContactButton = document.createElement('button');
+  saveContactButton.className = 'button button-contact';
+  saveContactButton.type = 'button';
+  saveContactButton.textContent = 'Save contact';
+  saveContactButton.addEventListener('click', async () => {
+    saveContactButton.disabled = true;
+    saveContactButton.textContent = 'Preparing contact…';
+    try {
+      await downloadContactCard();
+      showToast('Contact card ready — open it to add Geetanjali to Contacts.');
+    } catch {
+      showToast('The contact card could not be created. Please try again.');
+    } finally {
+      saveContactButton.disabled = false;
+      saveContactButton.textContent = 'Save contact';
+    }
+  });
+  actions.append(saveContactButton);
+
   if (!actions.children.length) actions.hidden = true;
 
   const inquiryButton = $('#inquiry-button');

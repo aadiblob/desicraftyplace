@@ -2,6 +2,8 @@
 
 A lightweight, mobile-first digital visiting card for the exhibition. It uses only HTML, CSS, and JavaScript—no installation or build step is required.
 
+The **Save contact** button creates a `.vcf` contact card containing Geetanjali's phone, email, business address, social/shop links, description, and logo. On iPhone, open the downloaded card and choose **Create New Contact**.
+
 ## Add the final details
 
 Open `src/content.js`. This single file controls:

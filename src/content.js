@@ -14,13 +14,22 @@ export const siteContent = {
     intro: 'I create custom, handcrafted home decor and gifts for every occasion.',
     location: 'Monmouth Junction, NJ 08852',
 
-    image: './assets/desi-crafty-place-logo.png',
-    imageAlt: 'Desi Crafty Place handmade desi crafts lotus logo',
+    image: './assets/desi-crafty-place-wordmark.png',
+    imageAlt: 'Desi Crafty Place wordmark with a home and mandala',
   },
 
   contact: {
     email: 'desicraftiplace@gmail.com',
     phone: '+1 (267) 893-0169',
+    address: {
+      city: 'Monmouth Junction',
+      state: 'NJ',
+      postalCode: '08852',
+      country: 'USA',
+    },
+
+    // This logo is embedded in the downloadable contact card.
+    contactCardPhoto: './assets/desi-crafty-place-logo.png',
 
     // Numbers only, including country code. Example: '15551234567'.
     whatsapp: '',

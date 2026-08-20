@@ -110,7 +110,7 @@ a { color: inherit; }
 .portrait img {
   width: 100%;
   height: 100%;
-  transform: scale(1.72);
+  transform: scale(1.03);
   object-fit: cover;
 }
 .portrait-placeholder { display: grid; place-items: center; color: var(--white); font-family: "Fraunces", serif; font-size: 2rem; font-weight: 700; }
@@ -163,9 +163,18 @@ h2 { font-size: clamp(1.7rem, 7vw, 2.45rem); line-height: 1.08; }
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 700;
+  cursor: pointer;
 }
 .button-primary { color: var(--white); background: var(--berry); box-shadow: 0 9px 22px rgba(139, 41, 79, 0.2); }
 .button-secondary { color: var(--berry); background: rgba(255, 255, 255, 0.72); }
+.button-contact {
+  grid-column: 1 / -1;
+  border-color: var(--leaf);
+  color: var(--white);
+  background: var(--leaf);
+  box-shadow: 0 9px 22px rgba(82, 115, 93, 0.2);
+}
+.button:disabled { cursor: wait; opacity: 0.7; }
 
 .link-section { padding: 0.25rem 0 3.5rem; }
 .section-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; margin-bottom: 1.4rem; }
@@ -261,6 +270,7 @@ footer { display: flex; flex-direction: column; align-items: center; gap: 0.45re
   .icon-button:hover, .social-link:not(.is-placeholder):hover { border-color: rgba(139, 41, 79, 0.32); box-shadow: 0 13px 28px rgba(84, 42, 57, 0.11); }
   .button-primary:hover { background: var(--berry-dark); box-shadow: 0 13px 28px rgba(139, 41, 79, 0.27); }
   .button-secondary:hover { background: var(--white); }
+  .button-contact:hover { background: #3f5e49; box-shadow: 0 13px 28px rgba(82, 115, 93, 0.26); }
   .button-light:hover { box-shadow: 0 12px 26px rgba(31, 8, 17, 0.25); }
   .social-link:not(.is-placeholder):hover .social-arrow, .button:hover .button-arrow { transform: translateX(0.25rem); }
 }
