@@ -30,6 +30,6 @@ export const siteContent = {
     { label: 'Instagram', shortLabel: 'IG', description: 'See our latest handmade creations', url: 'https://www.instagram.com/desicraftyplace/' },
     { label: 'Facebook', shortLabel: 'FB', description: 'Follow exhibitions and updates', url: 'https://www.facebook.com/desicraftyplace' },
     { label: 'Etsy Shop', shortLabel: 'ET', description: 'Shop handcrafted decor and gifts', url: 'https://desicraftyplace.etsy.com/' },
-    { label: 'Pinterest', shortLabel: 'PI', description: 'Explore our creative inspiration', url: 'https://pin.it/5URFSwVdFMy' },
+    { label: 'Pinterest', shortLabel: 'PI', description: 'Explore our creative inspiration', url: 'https://pin.it/5URFSwVdF' },
   ],
 };
